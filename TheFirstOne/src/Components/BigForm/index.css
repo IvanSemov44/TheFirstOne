@@ -14,6 +14,9 @@ body{
     margin: auto;
     margin-top: 20px;
 }
+form{
+    margin-top: 10px;
+}
 
 h1{
     font-size: x-large;
@@ -63,7 +66,8 @@ label{
     font-weight: bold;
 }
 
-botton{
+button{
+    
     padding: 15px;
     border-radius: 10px;
     margin: 15px;
