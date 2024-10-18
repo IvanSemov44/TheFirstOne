@@ -33,12 +33,64 @@ const UserCartComponent = ({
                     >
                       Remove Product
                     </button>
-                    <div className="quantity"></div>
+                    <div className="quantity">
+                      <button
+                        style={{ margin: "1%" }}
+                        onClick={(e) => {
+                          setCartCourses((prevCartCourses) => {
+                            const updatedCart = prevCartCourses.map(
+                              (prevItem) =>
+                                prevItem.product.id === item.product.id
+                                  ? { ...prevItem, quantity: item.quantity + 1 }
+                                  : prevItem
+                            );
+                            return updatedCart;
+                          });
+                        }}
+                      >
+                        +
+                      </button>
+                      <p className="quant">{item.quantity}</p>
+                      <button
+                        style={{ margin: "1%" }}
+                        onClick={(e) => {
+                          setCartCourses((prevCartCourses) => {
+                            const updateCart = prevCartCourses.map((prevItem) =>
+                              prevItem.product.id === item.product.id
+                                ? {
+                                    ...prevItem,
+                                    quantity: Math.max(item.quantity - 1, 0),
+                                  }
+                                : prevItem
+                            );
+                            return updateCart;
+                          });
+                        }}
+                      >
+                        -
+                      </button>
+                    </div>
                   </div>
                 </div>
               </li>
             ))}
           </ul>
+          <div className="checkout-section">
+            <div className="checkout-total">
+              <p className="total">
+                TotalAmount: ${totalAmountCalculationFunction()}
+              </p>
+            </div>
+            <button
+              className="checkout-button"
+              disabled={
+                cartCourses.length === 0 ||
+                totalAmountCalculationFunction() === 0
+              }
+            >
+              proceed to Payment
+            </button>
+          </div>
         </div>
       )}
     </div>

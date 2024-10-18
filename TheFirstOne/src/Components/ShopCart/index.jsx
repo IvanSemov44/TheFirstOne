@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SearchComponent from "./SearchComponent";
 import ShowCourseComponent from "./ShowCourseComponent";
 import UserCartComponent from "./UserCartComponent";
+import "./index.css";
 
 const ShopCart = () => {
   const [courses, setCourses] = useState([
@@ -80,10 +81,10 @@ const ShopCart = () => {
           addCourseToCartFunction={addCourseToCartFunction}
         />
         <UserCartComponent
-            cartCourses={cartCourse}
-            setCartCourses={searchCourse}
-            deleteCourseFromCartFunction={deleteCourseFromCartFunction}
-            totalAmountCalculationFunction={totalAmoundCalculationFunction}
+          cartCourses={cartCourse}
+          setCartCourses={setCartCourse}
+          deleteCourseFromCartFunction={deleteCourseFromCartFunction}
+          totalAmountCalculationFunction={totalAmoundCalculationFunction}
         />
       </main>
     </div>
